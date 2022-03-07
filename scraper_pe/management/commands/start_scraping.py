@@ -15,6 +15,8 @@ class Command(BaseCommand):
             format = input('Formato de descarga: ')
             report_name = input('Nombre del reporte: ')
             start_scraping(content_type, category, format, report_name)
+            finish_hour = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
+            print(f'Proceso finalizado... \n{finish_hour}\n') 
         except Exception as error:
             raise CommandError(f'Ups! Algo salió mal: {error}')
 
