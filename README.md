@@ -30,3 +30,8 @@ python -m venv venv
 ```
 (venv) python manage.py process_data <filename>.zip
 ```
+
+## Para ejecutar los test unitarios
+```
+(venv) python -m unittest discover
+```

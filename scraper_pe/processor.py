@@ -1,10 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from Scraper.settings import BASE_DIR
+from pathlib import Path
 import time
 import pandas as pd
 
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 def start_scraping(content_type, category, format, report_name):
     try:
         url = 'https://www.datosabiertos.gob.pe/'
@@ -20,6 +20,7 @@ def start_scraping(content_type, category, format, report_name):
         driver_web.get(url)
         search_data(driver_web, content_type, category, format, report_name)
         get_data(driver_web, report_name)
+        return True
 
     except Exception as error:
         return f'Ha ocurrido un error: {error}'
@@ -54,10 +55,9 @@ def search_data(driver_web, content_type, category, format, report_name):
             By.PARTIAL_LINK_TEXT, report_name.capitalize())
         link_data.click()
         time.sleep(5)
+        return True
     except Exception as e:
         return e
-
-    return True
 
 
 def get_data(driver_web,):
@@ -87,7 +87,6 @@ def read_data(file):
         password = None
         file_zip = zipfile.ZipFile(path_zip, "r")
         try:
-            print(file_zip.namelist())
             file_zip.extractall(pwd=password, path=path_extraction)
         except BaseException:
             pass
@@ -108,5 +107,6 @@ def data_classification(data):
             filter = data[columns[1]] == region
             (data[filter]).to_csv(
                 f'{BASE_DIR}\\scraper_pe\\classified_files\\{region.lower()}.csv')
+        return True
     except Exception as e:
         return e
