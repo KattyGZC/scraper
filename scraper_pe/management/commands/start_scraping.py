@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 from scraper_pe.processor import start_scraping
 import time
 
+
 class Command(BaseCommand):
     help = 'Inizialitation scraping'
 
@@ -16,7 +17,7 @@ class Command(BaseCommand):
             report_name = input('Nombre del reporte: ')
             start_scraping(content_type, category, format, report_name)
             finish_hour = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
-            print(f'Proceso finalizado... \n{finish_hour}\n') 
+            print(f'Proceso finalizado... \n{finish_hour}\n')
         except Exception as error:
             raise CommandError(f'Ups! Algo salió mal: {error}')
 
