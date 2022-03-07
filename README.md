@@ -34,6 +34,8 @@ python -m venv venv
 ```
 
 ## Para ejecutar los test unitarios
+1. Cambiar de carpeta ```cd scraper_pe```
+2. Ejecutar el comando:
 ```
 (venv) python -m unittest discover
 ```
