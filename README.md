@@ -22,7 +22,9 @@ python -m venv venv
 - Si no tiene Chrome, descarguelo [aquí](https://www.google.com/intl/es/chrome/?brand=UUXU&gclsrc=ds&gclsrc=ds).
 - Para saber la versión de su [Chrome](https://es.digitaltrends.com/computadoras/conocer-version-navegador/).
 - Obtener [driver](https://chromedriver.chromium.org/downloads)
-2. Ejecutar el siguiente comando, el cual descargará el archivo solicitado en formATO .zip
+2. Descomprima el archivo .zip y obtenga el chromedriver.exe
+3. Coloque el chromedriver.exe en la carpeta raiz del proyecto 
+4. Ejecutar el siguiente comando, el cual descargará el archivo solicitado en formato .zip
 ```
 (venv) python manage.py start_scraping
 ```
